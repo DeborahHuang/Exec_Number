@@ -10,26 +10,33 @@ namespace Q2
 	{
 		static void Main(string[] args)
 		{
+
 			//Q2找出數值區間內的所有質數
-			int number= 203;
+			int startNumber = 203;
 			int endNumber = 448;
 
 			Console.WriteLine("203-448之間是質數的有:");
-			
-			for (int i = number; i <= endNumber; i++)
+
+			for (int i = startNumber; i <= endNumber; i++)
 			{
+				bool isPrime = true;
 				for (int k = 2; k <= (int)Math.Sqrt(i); k++)
 				{
-					bool isNotPrime = (number % k == 0);
-					if (isNotPrime == false)
+
+					//string result = isNotPrime == false ? $"{i}" : string.Empty;
+					//Console.WriteLine(result);
+
+					if (i % k == 0)
 					{
-						Console.WriteLine(i);
+						isPrime = false;
 						break;
 					}
-					else
-					{
-						Console.WriteLine();
-					}
+
+				}
+					
+				if (isPrime)
+				{
+					Console.WriteLine(i);
 				}
 			}
 		}
